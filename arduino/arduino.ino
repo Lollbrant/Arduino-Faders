@@ -1,5 +1,8 @@
 #include <Arduino.h>
 
+static String ID = "HC001";
+static String VERSION = "1.3";
+
 typedef struct {
   int pinA;
   int pinB;
@@ -49,8 +52,7 @@ void setup() {
 
   Serial.begin(115200);
 
-  Serial.println("# HyperControl - Open Volume Controller");
-  Serial.println("# Version 1.0 - 2025-06-20");
+  Serial.println("# HyperControl v" + VERSION + " ID=" + ID);
   Serial.println("# Type HELP for available commands");
 
 }
@@ -59,6 +61,7 @@ void loop() {
   readFaders();
   readSerialInput();
   printStatus();
+  delay(20);
 }
 
 // --- Read and process serial input ---
@@ -89,10 +92,11 @@ void readFaders() {
           pinMode(faderGroups[group].faders[not_mux].pinB, INPUT);
           pinMode(faderGroups[group].faders[mux].pinA, OUTPUT);
           pinMode(faderGroups[group].faders[mux].pinB, OUTPUT);
-          digitalWrite(faderGroups[group].faders[mux].pinA, HIGH);
-          digitalWrite(faderGroups[group].faders[mux].pinB, LOW);
+          digitalWrite(faderGroups[group].faders[mux].pinA, LOW);
+          digitalWrite(faderGroups[group].faders[mux].pinB, HIGH);
         }
         delayMicroseconds(100);
+
         status[group][mux][0] = faderGroups[group].faders[mux].id;
         status[group][mux][1] = analogRead(faderGroups[group].wiperPin);
       }
@@ -116,11 +120,16 @@ void processCommand(const char *cmd) {
 
 // --- STATUS ---
 void printStatus() {
-  Serial.print("{\"spec\":{");
+
+  Serial.print("{\"id\":\"");
+  Serial.print(ID);
+  Serial.print("\", \"version\":\"");
+  Serial.print(VERSION);
+  Serial.print("\", \"spec\":{");
   Serial.print("\"faderCount\":");
   Serial.print(groupCount);
-  Serial.print(",\"min\":0,\"max\":1023");
-  Serial.print("{\"faders\":[");
+  Serial.print(",\"min\":0,\"max\":1023},");
+  Serial.print("\"faders\":[");
 
   bool first = true;
   for (size_t group = 0; group < groupCount; group++) {
@@ -146,6 +155,6 @@ void printStatus() {
 // --- HELP ---
 void printHelp() {
   Serial.println("# Available commands:");
-  Serial.println("HELP        # Show this help");
-  Serial.println("STATUS      # Show current state");
+  Serial.println("HELP                # Show this help");
+  Serial.println("STATUS          # Show current state");
 }
