@@ -7,6 +7,9 @@ Restart=always
 RestartSec=5
 StandardOutput=journal
 StandardError=journal
+CPUAccounting=yes
+MemoryAccounting=yes
+IOAccounting=yes
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
