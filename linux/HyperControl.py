@@ -16,7 +16,7 @@ FADER_CONTROL = {
     2: "upmix",
     3: "Firefox",
     4: "Chromium",
-    5: "notifications"
+    5: "Brave"
 }
 
 # --- Internal variables ---
