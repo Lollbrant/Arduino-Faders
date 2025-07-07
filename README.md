@@ -3,7 +3,7 @@
 A device with physical faders to control audio levels on a Linux PC using PipeWire and WirePlumber
 
 
-## Install the Python Service
+## Install the Service
 Copy the following files to their expected locations:
 
 - `linux/HyperControl.py` → `/opt/HyperControl/linux/HyperControl.py`
