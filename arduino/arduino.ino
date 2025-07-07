@@ -81,7 +81,6 @@ void readSerialInput() {
 
 // --- Read fader values ---
 void readFaders() {
-  //size_t groupCount = sizeof(faderGroups) / sizeof(faderGroups[0]);
   for (size_t group = 0; group < groupCount; group++) {
     size_t muxCount = sizeof(faderGroups[group].faders) / sizeof(faderGroups[group].faders[0]);
     for (size_t mux = 0; mux < muxCount; mux++) {
