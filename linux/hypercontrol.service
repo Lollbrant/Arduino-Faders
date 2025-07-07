@@ -2,7 +2,9 @@
 Description=HyperControl Device Listener
 
 [Service]
-ExecStart=/usr/bin/python3 /opt/HyperControl/linux/HyperControl.py
+ExecStart=/usr/bin/env python3 /opt/HyperControl/linux/HyperControl.py
+WorkingDirectory=/opt/HyperControl/linux
+Environment=PYTHONUNBUFFERED=1
 Restart=always
 RestartSec=5
 StandardOutput=journal
