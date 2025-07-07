@@ -1,3 +1,4 @@
+*This project is provided as-is. I built it for my own use and share it in case others find it useful. I do not offer any support.*
 # Arduino-Faders
 A device with faders to control audio on a PC
 
