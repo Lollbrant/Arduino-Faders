@@ -30,7 +30,6 @@ help:
 	@echo "  make            - Build the project"
 	@echo "  make clean      - Remove compiled files"
 	@echo "  make run        - Build and run the project"
-	@echo "  make install    - Install the binary system-wide"
 	@echo "  make config     - Generate a default config"
 
 .PHONY: clean config help
