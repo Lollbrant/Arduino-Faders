@@ -3,4 +3,4 @@
 3. Download this into a folder called cJSON: https://raw.githubusercontent.com/DaveGamble/cJSON/refs/heads/master/cJSON.c
 4. Download this into a folder called cJSON: https://raw.githubusercontent.com/DaveGamble/cJSON/refs/heads/master/cJSON.h
 5. make config
-6. make run
+6. make
