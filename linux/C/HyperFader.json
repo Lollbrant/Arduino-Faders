@@ -1,0 +1,15 @@
+{
+    "port": "/dev/ttyUSB1",
+    "baud_rate": 115200,
+    "log_level": "info",
+    "devices": [
+        {"HC001": [
+            {"id": 1, "class": "Stream/Output", "name": "Firefox"},
+            {"id": 2, "class": "Stream/Output", "name": "Chrome"},
+            {"id": 3, "class": "Stream/Output", "name": "Discord"},
+            {"id": 4, "class": "Audio/Sink", "name": "upmix"},
+            {"id": 5, "class": "Audio/Sink", "name": "alsa_output"}
+        ]
+        }
+    ]
+}
